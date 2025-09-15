@@ -1,0 +1,68 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, cupcake;
+}
+
+* {
+  transition-property: all;
+  transition-timing-function: var(
+    --tw-ease,
+    var(--default-transition-timing-function)
+  );
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  --tw-duration: 200ms;
+  transition-duration: 200ms;
+}
+
+@theme {
+  --breakpoint-xxs: 21.25rem; /* 340px */
+  --breakpoint-xs: 23.125rem; /* 363px */
+  --breakpoint-xxl: 82.5rem; /* 1320px */
+  --color-picto-primary: #2563eb;        /* Bright Blue */
+  --color-picto-primary-dark: #1e3a8a;   /* Navy Blue */
+  --color-soft-white: #f9fafb;           /* Soft White */
+  --color-soft-dark: #6b7280;            /* Gray (Neutral Text) */
+}
+
+.btn-primary {
+  @apply bg-picto-primary border-0 text-white hover:scale-[102%] hover:bg-picto-primary-dark transition-all duration-500;
+}
+body {
+  font-family: "Work Sans", sans-serif;
+}
+
+.content {
+  @apply max-xxl:w-full xxl:max-w-[1320px] xxl:mx-auto;
+}
+
+.section-title {
+  @apply md:font-semibold text-3xl sm:text-4xl md:text-5xl font-medium;
+}
+
+.center {
+  @apply flex justify-center items-center;
+}
+.introduction-profile-background {
+  background: radial-gradient(
+      circle at 12% 100%,
+      #dbeafe 1% 5px,        /* Soft light blue */
+      transparent 15%
+    ),
+    radial-gradient(circle at 95% -15%, #94ccf7 5%, transparent 30%), /* Bright blue */
+    radial-gradient(circle at center right, #bfdbfe 2%, transparent 35%); /* Sky blue */
+}
+
+.blog-background {
+  background: radial-gradient(circle at -10% 0%, #3b82f6 1%, transparent 25%),
+    radial-gradient(circle at 110% 30%, #93c5fd 5%, transparent 25%);
+}
+
+.bg-highlight {
+  background: linear-gradient(to top, #dbeafe 40%, transparent 40%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
