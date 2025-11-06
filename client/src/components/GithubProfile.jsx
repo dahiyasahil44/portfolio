@@ -1,6 +1,6 @@
 import GitHubCalendar from "react-github-calendar"; 
 
-const Github = () => {
+const GithubProfile = () => {
   const username = "dahiyasahil44";
 
   return (
@@ -39,4 +39,4 @@ const Github = () => {
   );
 };
 
-export default Github;
+export default GithubProfile;
