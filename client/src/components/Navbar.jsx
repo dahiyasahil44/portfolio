@@ -49,13 +49,29 @@ const NavBar = () => {
     };
   }, []);
 
+  const handleDownloadCV = () => {
+    const viewUrl = "https://drive.google.com/file/d/1U1LxQrcak35eyxsW759GBacRwR0NDJc1/view";
+    const downloadUrl = "https://drive.google.com/uc?export=download&id=1U1LxQrcak35eyxsW759GBacRwR0NDJc1";
+
+    // Open in new tab
+    window.open(viewUrl, "_blank");
+
+    // Trigger download
+    const link = document.createElement("a");
+    link.href = downloadUrl;
+    link.download = "Sahil_Dahiya_Resume.pdf"; // name for the downloaded file
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+
   return (
     <div
-      className={`sticky top-0 ${
-        position > 50
-          ? "bg-soft-white border-b border-gray-300"
-          : "bg-white border-white"
-      } z-50 transition-all duration-1000`}
+      className={`sticky top-0 ${position > 50
+        ? "bg-soft-white border-b border-gray-300"
+        : "bg-white border-white"
+        } z-50 transition-all duration-1000`}
     >
       <div className="navbar flex justify-between mx-auto content">
         <div className="flex items-center justify-between">
@@ -93,7 +109,7 @@ const NavBar = () => {
           >
             <img src={logo} className="h-8 sm:h-14 rounded-2xl" alt="logo" />
             <p className="text-2xl sm:text-[32px] my-auto ms-[12px] font-semibold">
-              
+
             </p>
           </Link>
         </div>
@@ -103,15 +119,13 @@ const NavBar = () => {
             {menu}
           </ul>
           <p className="">
-            <a
+            <button
               className="btn btn-sm xs:btn-md sm:btn-lg btn-primary"
-              href="https://drive.google.com/file/d/1U1LxQrcak35eyxsW759GBacRwR0NDJc1/view"
-              smooth={true}
-              duration={900}
-              target="_blank"
+              onClick={handleDownloadCV}
             >
               Download CV
-            </a>
+            </button>
+
           </p>
         </div>
       </div>

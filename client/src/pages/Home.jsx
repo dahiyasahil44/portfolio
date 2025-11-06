@@ -6,6 +6,7 @@ import Profile from "../components/Profile"
 import Portfolio from "../components/Portfolio"
 import WorkProcess from "../components/WorkProcess"
 import Contact from "../components/Contact"
+import Github from "../components/GitHub"
 
 export default function Home() {
     return (
@@ -22,6 +23,7 @@ export default function Home() {
             <Portfolio />
         </div>
         <WorkProcess />
+        <Github />
         <Contact />
        <div className="bg-gray-50">
         <Footer />

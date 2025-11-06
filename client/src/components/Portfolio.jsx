@@ -12,6 +12,7 @@ const projectData = [
     description:
       "Tech Stack: React.js | Firebase | TUI Image Editor | Predis.ai | HTML/CSS | JavaScript",
     link: "https://memehub-nu.vercel.app/",
+    github: "https://github.com/dahiyasahil44/MemeHub"
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ const projectData = [
     description:
       "Tech Stack: React.js | Firebase | TUI Image Editor | Predis.ai | HTML/CSS | JavaScript",
     link: "https://gardening-app-tawny.vercel.app/",
+    github: "https://github.com/dahiyasahil44/GardeningApp"
   },
   {
     id: 3,
@@ -30,6 +32,7 @@ const projectData = [
     description:
       "Tech Stack: MERN (MongoDB, Express.js, React.js, Node.js) | HTML/CSS | JavaScript",
     link: "https://task-master-front-two.vercel.app/",
+    github: "https://github.com/dahiyasahil44/TaskMaster-MERN"
   }
 ];
 

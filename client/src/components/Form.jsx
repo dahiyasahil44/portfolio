@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+
 const telegramSVG = (
   <svg
     className="w-4 md:w-6 aspect-square"
@@ -16,43 +18,63 @@ const commonClass =
   "input input-lg border-0 border-b-2 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-[#E6E8EB] w-full rounded-none px-0";
 
 const Form = () => {
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+
+    const response = await fetch("https://formspree.io/f/xanlrvyb", {
+      method: "POST",
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (response.ok) {
+      setStatus("SUCCESS");
+      form.reset();
+    } else {
+      setStatus("ERROR");
+    }
+  };
+
   return (
     <div>
       <p className="text-[12px] xs:text-[14px] max-lg:text-center sm:text-lg font-normal text-soft-dark">
         Let’s build something amazing together! Drop me a message — I’m just an email away
       </p>
       <div className="mx-2">
-        <form className="flex flex-col gap-4 mt-4">
-          <input
-            type="text"
-            placeholder="Name*"
-            className={`${commonClass}`}
+        <form
+          className="flex flex-col gap-4 mt-4"
+          onSubmit={handleSubmit}
+        >
+          <input type="text" name="name" placeholder="Name*" className={commonClass} required />
+          <input type="email" name="email" placeholder="Email*" className={commonClass} required />
+          <input type="text" name="subject" placeholder="Subject*" className={commonClass} required />
+          <textarea
+            name="message"
+            placeholder="Message"
+            rows={5}
+            className={`${commonClass} mt-4`}
             required
-          />
-          <input
-            type="email"
-            placeholder="Email*"
-            className={`${commonClass}`}
-            required
-          />
-          
+          ></textarea>
 
-            <input
-              type="text"
-              placeholder="Subject*"
-              className={`${commonClass}`}
-              required
-            />
-     
-        <textarea name="" className={`${commonClass} mt-4`} id="" required
-        placeholder="Message" rows={30}></textarea>
-         
           <button
             type="submit"
             className="btn gap-3 max-lg:mx-auto btn-primary rounded-sm mt-3 text-[13px] md:text-[16px] w-fit font-semibold lg:mt-12.5 p-2 md:px-4"
           >
             Submit {telegramSVG}
           </button>
+
+          {status === "SUCCESS" && (
+            <p className="text-green-600 mt-2">Thanks! Your message has been sent.</p>
+          )}
+          {status === "ERROR" && (
+            <p className="text-red-600 mt-2">Oops! Something went wrong. Try again later.</p>
+          )}
         </form>
       </div>
     </div>
