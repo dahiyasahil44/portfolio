@@ -1,24 +1,26 @@
 import { useState } from "react";
 
-const WorkSteps = ({ data, style }) => {
+const WorkSteps = ({ data }) => {
   const [hover, setHover] = useState(false);
+
   return (
     <div
-      className={`rounded-xl hover:drop-shadow-2xl shadow-gray-300 ease-out duration-1000  ${
-        style && style
-      }`}
+      className={`rounded-xl bg-white p-4 sm:p-6 w-full max-w-[140px] sm:max-w-[180px] flex flex-col items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 ease-out`}
       onMouseOver={() => setHover(true)}
       onMouseOut={() => setHover(false)}
     >
-      <div
-        className={`w-11 h-11 sm:w-18 sm:h-18 text-center center rounded-md`}
-      >
-        <img src={data?.image} alt={data?.title} />
+      <div className="w-12 h-12 sm:w-16 sm:h-16 flex justify-center items-center">
+        <img
+          src={data?.image}
+          alt={data?.title}
+          className={`object-contain transition-transform duration-300 ${
+            hover ? "scale-110" : "scale-100"
+          }`}
+        />
       </div>
-      <div className="mt-3 xs:mt-4 sm:mt-8">
-        <p className="font-semibold text-center sm:text-sm">{`${data?.title}`}</p>
-       
-      </div>
+      <p className="font-semibold text-center text-sm sm:text-base mt-3">
+        {data?.title}
+      </p>
     </div>
   );
 };

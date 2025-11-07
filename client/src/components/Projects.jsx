@@ -16,24 +16,26 @@ const Projects = ({ data }) => {
         >
           {data?.description}
         </p>
-        <a style={{marginRight:"15px"}}
-        target="_blank"
+        <a
+          style={{ marginRight: "15px" }}
+          target="_blank"
           href={data?.github}
-          className="btn hover:border-picto-primary hover:text-picto-primary bg-white text-sm xs:text-[16px] font-semibold hover:gap-3 xs:hover:gap-4 transition-all duration-300 mt-5 xs:py-5.75 px-6 max-sm:w-full"
+          className="btn border border-transparent bg-white text-gray-800 dark:bg-gray-800 dark:text-white dark:hover:text-picto-primary hover:border-picto-primary hover:text-picto-primary text-sm xs:text-[16px] font-semibold hover:gap-3 xs:hover:gap-4 transition-all duration-300 mt-5 xs:py-5.75 px-6 max-sm:w-full"
         >
           GitHub
-          
         </a>
-        <a 
-        target="_blank"
+
+        <a
+          target="_blank"
           href={data?.link}
-          className="btn hover:border-picto-primary hover:text-picto-primary bg-white text-sm xs:text-[16px] font-semibold hover:gap-3 xs:hover:gap-4 transition-all duration-300 mt-5 xs:py-5.75 px-6 max-sm:w-full"
+          className="btn border border-transparent bg-white text-gray-800 dark:bg-gray-800 dark:text-white dark:hover:text-picto-primary hover:border-picto-primary hover:text-picto-primary text-sm xs:text-[16px] font-semibold hover:gap-3 xs:hover:gap-4 transition-all duration-300 mt-5 xs:py-5.75 px-6 max-sm:w-full"
         >
           Visit now
           <span className="ms-1 xs:ms-3">
-            <FontAwesomeIcon icon={faArrowRight} size="l" className="" />
+            <FontAwesomeIcon icon={faArrowRight} size="l" />
           </span>
         </a>
+
         {/* </p> */}
       </div>
     </div>

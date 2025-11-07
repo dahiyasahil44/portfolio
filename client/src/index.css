@@ -6,32 +6,45 @@
 
 * {
   transition-property: all;
-  transition-timing-function: var(
-    --tw-ease,
-    var(--default-transition-timing-function)
-  );
-  transition-duration: var(--tw-duration, var(--default-transition-duration));
-  --tw-duration: 200ms;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: 200ms;
 }
 
 @theme {
-  --breakpoint-xxs: 21.25rem; /* 340px */
-  --breakpoint-xs: 23.125rem; /* 363px */
-  --breakpoint-xxl: 82.5rem; /* 1320px */
-  --color-picto-primary: #2563eb;        /* Bright Blue */
-  --color-picto-primary-dark: #1e3a8a;   /* Navy Blue */
-  --color-soft-white: #f9fafb;           /* Soft White */
-  --color-soft-dark: #6b7280;            /* Gray (Neutral Text) */
+  --breakpoint-xxs: 21.25rem;
+  --breakpoint-xs: 23.125rem;
+  --breakpoint-xxl: 82.5rem;
+
+  --color-picto-primary: #2563eb;
+  --color-picto-primary-dark: #1e3a8a;
+  --color-soft-white: #f9fafb;
+  --color-soft-dark: #6b7280;
 }
 
+/* ---------------------------
+   General Styles
+--------------------------- */
+body {
+  font-family: "Work Sans", sans-serif;
+  background-color: var(--color-soft-white);
+  color: #111827; /* dark text */
+}
+
+[data-theme="dark"] body {
+  background-color: #0f172a; /* slate-900 */
+  color: #e5e7eb; /* light gray text */
+}
+
+/* ---------------------------
+   Buttons
+--------------------------- */
 .btn-primary {
   @apply bg-picto-primary border-0 text-white hover:scale-[102%] hover:bg-picto-primary-dark transition-all duration-500;
 }
-body {
-  font-family: "Work Sans", sans-serif;
-}
 
+/* ---------------------------
+   Layout & Typography
+--------------------------- */
 .content {
   @apply max-xxl:w-full xxl:max-w-[1320px] xxl:mx-auto;
 }
@@ -43,14 +56,14 @@ body {
 .center {
   @apply flex justify-center items-center;
 }
+
+/* ---------------------------
+   Light Backgrounds
+--------------------------- */
 .introduction-profile-background {
-  background: radial-gradient(
-      circle at 12% 100%,
-      #dbeafe 1% 5px,        /* Soft light blue */
-      transparent 15%
-    ),
-    radial-gradient(circle at 95% -15%, #94ccf7 5%, transparent 30%), /* Bright blue */
-    radial-gradient(circle at center right, #bfdbfe 2%, transparent 35%); /* Sky blue */
+  background: radial-gradient(circle at 12% 100%, #dbeafe 1% 5px, transparent 15%),
+    radial-gradient(circle at 95% -15%, #94ccf7 5%, transparent 30%),
+    radial-gradient(circle at center right, #bfdbfe 2%, transparent 35%);
 }
 
 .blog-background {
@@ -58,11 +71,34 @@ body {
     radial-gradient(circle at 110% 30%, #93c5fd 5%, transparent 25%);
 }
 
-.bg-highlight {
-  background: linear-gradient(to top, #dbeafe 40%, transparent 40%);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  padding-left: 2px;
-  padding-right: 2px;
+/* ---------------------------
+   Dark Mode Overrides
+--------------------------- */
+[data-theme="dark"] .introduction-profile-background {
+  background: radial-gradient(circle at 12% 100%, #1e3a8a 1% 5px, transparent 15%),
+    radial-gradient(circle at 95% -15%, #2563eb 5%, transparent 30%),
+    radial-gradient(circle at center right, #1e40af 2%, transparent 35%);
 }
 
+[data-theme="dark"] .blog-background {
+  background: radial-gradient(circle at -10% 0%, #1d4ed8 1%, transparent 25%),
+    radial-gradient(circle at 110% 30%, #3b82f6 5%, transparent 25%);
+}
+
+[data-theme="dark"] .bg-highlight {
+  background: linear-gradient(to top, #1e3a8a 40%, transparent 40%);
+}
+
+/* Optional: Improve dark text contrast */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3 {
+  color: #f3f4f6;
+}
+
+
+/* Prevent DaisyUI from darkening inputs */
+[data-theme="dark"] .input {
+  background-color: white !important;
+  color: #1f2937 !important; /* gray-800 for text */
+}

@@ -15,7 +15,7 @@ const telegramSVG = (
 );
 
 const commonClass =
-  "input input-lg border-0 border-b-2 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-[#E6E8EB] w-full rounded-none px-0";
+  "input input-lg border-0 border-b-2 bg-white text-gray-800 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-[#E6E8EB] w-full rounded-none px-0";
 
 const Form = () => {
   const [status, setStatus] = useState("");
